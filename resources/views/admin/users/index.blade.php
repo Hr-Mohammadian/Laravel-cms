@@ -4,6 +4,9 @@
     <link href="/assets/ltr/plugins/select2/dist/css/select2.css" rel="stylesheet" type="text/css">
     <link href="/assets/ltr/plugins/select2/dist/css/select2-bootstrap.css" rel="stylesheet" type="text/css">
 @endsection
+@section('pagetitle')
+    Users
+@endsection
 @section('body')
     <div class="row">
         <div class="col-lg-12">
@@ -102,6 +105,7 @@
                                 <th>Name</th>
                                 <th>E-mail</th>
                                 <th>Role</th>
+                                <th>Status</th>
                                 <th>Created at</th>
                                 <th>Actions</th>
                             </tr>
@@ -121,7 +125,12 @@
                                             @endforeach
                                         </ul>
                                     </td>
+                                    @if($user->status == 0)
+                                        <td><span class="badge badge-danger">not Verified</span></td>
+                                    @else
+                                        <td><span class="badge badge-success">Verified</span></td>
 
+                                    @endif
                                     <td>{{$user->created_at}}</td>
                                     <td class="actions">
                                         <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
